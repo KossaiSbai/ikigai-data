@@ -1,24 +1,31 @@
 .CentralSection
 {
-    background-color: red;
+    background-color: #003058;
     min-height: 70vh;
     font-size: calc(10px + 2vmin);
     color: white;
+    display: flex;
+    justify-content: center;
 }
 
-#parentdiv {
+#pathway-circle {
     position: relative;
     width: 150px;
     height: 150px;
-    background-color: #ac5;
+    background-color: #3f6785;
     border-radius: 150px;
     margin: 200px;
 }
 
-.div2 {
+.job-circle {
     position: absolute;
     width: 40px;
     height: 40px;
-    background-color: #ac5;
+    background-color: #ed722f;
     border-radius: 100px;
+    border: 1px solid #f0914e;
+}
+
+.job-circle:focus{
+    background-color:red;
 }

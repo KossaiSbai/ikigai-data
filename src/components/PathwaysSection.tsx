@@ -1,13 +1,19 @@
 import * as React from "react";
-import List from "./List";
+import JobBoxesList from "./JobBoxesList";
+import {Pathway} from "./HomePage";
+import '../styles/PathwaysSection.css'
 
 
-export default class PathwaysSection extends React.Component {
+type PathwaysSectionProps =
+    {
+        pathway: Pathway;
+        changePathwayHandler: (index:number) => void
+    }
+export default class PathwaysSection extends React.Component<PathwaysSectionProps> {
     render() {
         return (
-            <div>
-                <h2>Pathways Section</h2>
-                <List></List>
+            <div className={"PathwaysSection"}>
+                <JobBoxesList pathway={this.props.pathway} changePathwayHandler={this.props.changePathwayHandler}/>
             </div>
         );
     }

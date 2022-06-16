@@ -5,35 +5,44 @@ export type JobCircleProps = {
     index: number;
     top: number;
     left: number;
+    clickFunction?: () => void
 }
 
-const handleClick = (id: string, i: number) => {
-    console.log(id)
-    console.log(document.getElementById(id));
+
+const handleClick = (refs:  React.RefObject<any>[], id: number) => {
     // @ts-ignore
-    document.getElementById(id).scrollLeft += i * 150;
-    // console.log(refs[id]);
-    // refs[id].current.scrollIntoView({
-    //     behavior: 'smooth',
-    //     block: 'start',
-    //     inline: ,
-    // });
-    console.log(`clicked ${id}`);
+    refs[id].current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+    });
 }
+
 
 
 export default class JobCircle extends React.Component<JobCircleProps> {
+
+    state = {
+        isSelected: false,
+    };
+
+
     render() {
+
+        const clickHandler = () =>
+        {
+            // @ts-ignore
+            this.props.clickFunction();
+        }
+
         return (
-            <div className={'div2'} id={"circle"+this.props.index} style={{
+            <button className={'job-circle'} id={"circle"+this.props.index} style={{
                 position: "absolute",
                 top: (this.props.top).toString() + "px",
-                left: (this.props.left).toString() + "px"
-            }} onClick={() => {
-                handleClick('listContainer', this.props.index);
-            }}>
-
-            </div>
+                left: (this.props.left).toString() + "px",
+                color: "white",
+            }} onClick={clickHandler}>
+                0{this.props.index}
+            </button>
         );
     }
 }

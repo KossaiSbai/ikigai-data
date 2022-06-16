@@ -1,18 +1,23 @@
 import * as React from "react";
 import '../styles/CentralSection.css';
-import List from "./List";
+import JobBoxesList from "./JobBoxesList";
 import JobCircle from "./JobCircle";
 import PathwayCircle from "./PathwayCircle";
+import {Pathway} from "./HomePage";
 
 
-export default class CentralSection extends React.Component {
+type CentralSectionProps =
+    {
+        pathway: Pathway;
+    }
+
+export default class CentralSection extends React.Component<CentralSectionProps> {
 
     render() {
 
         return (
             <div className="CentralSection">
-                <h2>Main Section</h2>
-            <PathwayCircle></PathwayCircle>
+                <PathwayCircle pathway={this.props.pathway} name={this.props.pathway.name}/>
             </div>
         );
     }
